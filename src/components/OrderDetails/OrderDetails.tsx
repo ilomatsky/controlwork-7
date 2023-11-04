@@ -19,12 +19,14 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({orderItems, onRemoveItem}) =
       {orderItems.length === 0 ? (
         <><p>Order is empty!</p><p>Please add some items!</p></>
       ) : (
-        <div>
-          <ul>
+        <div className="Details">
+          <ul className="Items">
             {orderItems.map((item, index) => (
-              <li key={index}>
-                {item.name} x{item.quantity} - {calculateItemTotal(item)}$
-                <button onClick={() => onRemoveItem(item.name)}>x</button>
+              <li className="Item" key={index}>
+                <span className="ItemName">{item.name}</span>
+                <span className="ItemQuantity">x{item.quantity}</span>
+                <span className="ItemTotal">{calculateItemTotal(item)}$</span>
+                <button className="RemoveBtn" onClick={() => onRemoveItem(item.name)}>x</button>
               </li>
             ))}
           </ul>

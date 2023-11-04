@@ -11,8 +11,6 @@
 }
 
 .OrderDetails {
-  display: flex;
-  flex-direction: column;
   margin: 0 40px 0 0;
   border: 1px solid white;
   width: 400px;
@@ -20,8 +18,41 @@
   padding: 10px;
 }
 
-.OrderDetails ul {
+.Details {
+  display: flex;
+  flex-direction: column;
+}
+
+.Items {
   list-style: none;
+  text-align: left;
+  padding-inline-start: 0;
+}
+
+.Item {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid white;
+  width: 300px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+.ItemName {
+  width: 111px;
+}
+
+.ItemQuantity {
+  margin-left: 20px;
+}
+
+.ItemTotal {
+  margin-left: 50px;
+}
+
+.RemoveBtn {
+  margin-left: auto;
 }
 
 .TotalSum {
