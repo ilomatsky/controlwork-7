@@ -1,15 +1,9 @@
 import React from 'react';
-
-interface MenuItem {
-  id: number;
-  name: string;
-  price: number;
-}
+import {MenuItem} from '../AddItems/AddItems';
 
 interface OrderItem extends MenuItem {
   quantity: number;
 }
-
 
 interface OrderDetailsProps {
   orderItems: OrderItem[];
