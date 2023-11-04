@@ -1,12 +1,12 @@
 import React from 'react';
-import {MenuItem} from '../AddItems/AddItems';
+import {MenuItem as OrderItemInterface, MenuItem} from '../AddItems/AddItems';
 
-interface OrderItem extends MenuItem {
+export interface OrderItem extends MenuItem {
   quantity: number;
 }
 
 interface OrderDetailsProps {
-  orderItems: OrderItem[];
+  orderItems: OrderItemInterface[];
 }
 
 const OrderDetails: React.FC<OrderDetailsProps> = ({orderItems}) => {

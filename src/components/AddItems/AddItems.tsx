@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 
 export interface MenuItem {
-  id: number;
+  quantity: ReactNode;
   name: string;
   price: number;
+}
+
+export interface OrderItem extends MenuItem {
+  quantity: number;
 }
 
 interface AddItemsProps {
@@ -15,8 +19,8 @@ const AddItems: React.FC<AddItemsProps> = ({ menuItems, onAddItem }) => {
   return (
     <div className="add-items">
       <h2>Add items</h2>
-      {menuItems.map((item) => (
-        <button key={item.id} onClick={() => onAddItem(item)}>
+      {menuItems.map((item, index) => (
+        <button key={index} onClick={() => onAddItem(item)}>
           {item.name} - {item.price}$
         </button>
       ))}
