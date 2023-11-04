@@ -14,21 +14,23 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({orderItems, onRemoveItem}) =
   const total = orderItems.reduce((sum, item) => sum + calculateItemTotal(item), 0);
 
   return (
-    <div className="order-details">
+    <div className="OrderDetails">
       <h2>Order Details</h2>
       {orderItems.length === 0 ? (
-        <p>No items in the order.</p>
+        <><p>Order is empty!</p><p>Please add some items!</p></>
       ) : (
         <div>
           <ul>
             {orderItems.map((item, index) => (
               <li key={index}>
                 {item.name} x{item.quantity} - {calculateItemTotal(item)}$
-                <button onClick={() => onRemoveItem(item.name)}>Remove</button>
+                <button onClick={() => onRemoveItem(item.name)}>x</button>
               </li>
             ))}
           </ul>
-          <strong>Total: {total}$</strong>
+          <div className="TotalSum">
+            <strong>Total: {total}$</strong>
+          </div>
         </div>
       )}
     </div>

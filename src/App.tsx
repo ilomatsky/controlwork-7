@@ -34,7 +34,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="app">
+    <div className="App">
       <OrderDetails orderItems={orderItems} onRemoveItem={removeItemFromOrder}/>
       <AddItems menuItems={menuItems} onAddItem={addItemToOrder}/>
     </div>

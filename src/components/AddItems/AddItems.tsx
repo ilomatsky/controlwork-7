@@ -17,11 +17,11 @@ interface AddItemsProps {
 
 const AddItems: React.FC<AddItemsProps> = ({menuItems, onAddItem}) => {
   return (
-    <div className="add-items">
+    <div className="AddItems">
       <h2>Add items</h2>
       {menuItems.map((item, index) => (
-        <button key={index} onClick={() => onAddItem(item)}>
-          {item.name} - {item.price}$
+        <button key={index} onClick={() => onAddItem(item)} className={item.name.toLowerCase()}>
+          <strong>{item.name} <br/>Price: {item.price}$</strong>
         </button>
       ))}
     </div>
