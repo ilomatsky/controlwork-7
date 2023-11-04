@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import OrderDetails, {OrderItem} from './components/OrderDetails/OrderDetails';
-import AddItems, {MenuItem} from './components/AddItems/AddItems';
+import OrderDetails from './components/OrderDetails/OrderDetails';
+import AddItems, {MenuItem, OrderItem} from './components/AddItems/AddItems';
 import './App.css';
 
 const menuItems: MenuItem[] = [
-  {name: 'Hamburger', price: 80},
-  {name: 'Cheeseburger', price: 90},
-  {name: 'Fries', price: 45},
-  {name: 'Coffee', price: 70},
-  {name: 'Tea', price: 50},
-  {name: 'Cola', price: 40},
+  {name: 'Hamburger', price: 80, quantity: 0},
+  {name: 'Cheeseburger', price: 90, quantity: 0},
+  {name: 'Fries', price: 45, quantity: 0},
+  {name: 'Coffee', price: 70, quantity: 0},
+  {name: 'Tea', price: 50, quantity: 0},
+  {name: 'Cola', price: 40, quantity: 0},
 ];
 
 const App: React.FC = () => {
@@ -28,9 +28,14 @@ const App: React.FC = () => {
     }
   };
 
+  const removeItemFromOrder = (name: string): void => {
+    const updatedOrderItems = orderItems.filter((item) => item.name !== name);
+    setOrderItems(updatedOrderItems);
+  };
+
   return (
     <div className="app">
-      <OrderDetails orderItems={orderItems}/>
+      <OrderDetails orderItems={orderItems} onRemoveItem={removeItemFromOrder}/>
       <AddItems menuItems={menuItems} onAddItem={addItemToOrder}/>
     </div>
   );

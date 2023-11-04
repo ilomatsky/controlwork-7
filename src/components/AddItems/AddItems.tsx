@@ -15,7 +15,7 @@ interface AddItemsProps {
   onAddItem: (item: MenuItem) => void;
 }
 
-const AddItems: React.FC<AddItemsProps> = ({ menuItems, onAddItem }) => {
+const AddItems: React.FC<AddItemsProps> = ({menuItems, onAddItem}) => {
   return (
     <div className="add-items">
       <h2>Add items</h2>
